@@ -2,7 +2,65 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600);
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
 }
 body {
   font-family: 'Source Sans Pro', sans-serif;
+}
+.player {
+  font-size: 14px;
+  overflow: auto;
+}
+.player:not(:last-child) {
+  border-bottom: 3px solid #e8e9eb;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.player > div {
+  float: left;
+}
+.player .left-side {
+  width: 33%;
+}
+.player .left-side img {
+  max-width: 100%;
+}
+.player .left-side a {
+  display: block;
+  width: 100%;
+  height: 30px;
+  background-color: #e8e9eb;
+  color: #41759a;
+  text-decoration: none;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 600;
+}
+.player .right-side {
+  width: 66%;
+  padding-left: 5px;
+}
+.player .right-side p {
+  margin: 0;
+}
+.player .right-side .name {
+  font-weight: 600;
+}
+.player table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 3px 2px;
+}
+.player table thead {
+  text-transform: uppercase;
+  color: #41759a;
+  font-size: 12px;
+}
+.player table tbody tr:nth-child(odd) {
+  background-color: #e8e9eb;
+}
+.player table tbody td:first-child {
+  text-transform: uppercase;
+  color: #41759a;
+  font-weight: 600;
 }
