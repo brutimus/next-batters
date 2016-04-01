@@ -79,7 +79,7 @@ function next_batter() {
 
     function draw_ui(config, roster){
       var div = selection.selectAll('div')
-        .data(config.next)
+        .data([config.current])
         .enter()
           .append('div')
           .classed('player', true);
@@ -134,11 +134,10 @@ function next_batter() {
     function data_ready(err, spreadsheet_data, feed_data) {
       var config = proc_config(spreadsheet_data);
       var roster = proc_feed(feed_data);
+      extend(config.current, roster[config.current.id]);
       config.next.map(function (row) {
-        // console.log(row);
         extend(row, roster[row.id])
       })
-      // console.log(config, roster);
       draw_ui(config);
     }
 
