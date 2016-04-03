@@ -89,7 +89,7 @@ function next_batter() {
         .attr('src', function (d) {return d.photo})
         .classed('photo', true);
       l_div.append('a')
-        .attr('href', '')
+        .attr('href', function(d){return 'http://m.ocregister.com/Sports/Angels/Player?thePlayer=' + d.playerId})
         .attr('target', '_parent')
         .html('Full Profile &raquo;');
       var r_div = div.append('div')
