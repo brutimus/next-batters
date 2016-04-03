@@ -89,7 +89,7 @@ function next_batter() {
         .attr('src', function (d) {return d.photo})
         .classed('photo', true);
       l_div.append('a')
-        .attr('href', '')
+        .attr('href', function(d){return 'http://m.ocregister.com/Sports/Angels/Player?thePlayer=' + d.playerId})
         .attr('target', '_parent')
         .html('Full Profile &raquo;');
       var r_div = div.append('div')
@@ -115,19 +115,19 @@ function next_batter() {
         .classed('stats', true)
         .html(function(d){return ("<table>" +
         "<thead><tr><th></th><th>SEASON</th><th>CAREER</th></tr></thead><tbody>" +
-        "<tr><td>Avg</td><td>{0}</td><td>{4}</td></tr>" +
-        "<tr><td>Runs</td><td>{1}</td><td>{5}</td></tr>" +
-        "<tr><td>HR</td><td>{2}</td><td>{6}</td></tr>" +
-        "<tr><td>RBI</td><td>{3}</td><td>{7}</td></tr>" +
+        "<tr><td>WL</td><td>{0}</td><td>{4}</td></tr>" +
+        "<tr><td>ERA</td><td>{1}</td><td>{5}</td></tr>" +
+        "<tr><td>SO</td><td>{2}</td><td>{6}</td></tr>" +
+        "<tr><td>WHIP</td><td>{3}</td><td>{7}</td></tr>" +
         "</tbody></table>").format(
-          d.seasonStats.batting.avg.toString().slice(1),
-          d.seasonStats.batting.runs,
-          d.seasonStats.batting.hr,
-          d.seasonStats.batting.rbi,
-          d.careerStats.batting.avg.toString().slice(1),
-          d.careerStats.batting.runs,
-          d.careerStats.batting.hr,
-          d.careerStats.batting.rbi
+          d.seasonStats.pitching.wl,
+          d.seasonStats.pitching.era,
+          d.seasonStats.pitching.so,
+          d.seasonStats.pitching.whip,
+          d.careerStats.pitching.wl,
+          d.careerStats.pitching.era,
+          d.careerStats.pitching.so,
+          d.careerStats.pitching.whip
         )})
     }
 
