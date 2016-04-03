@@ -56,18 +56,23 @@ function next_batter() {
           'current': null,
           'next': []
         };
-        rows.map(function(elem) {
-          if (config.current && next_count > 0) {
-            config.next.push(elem);
-            next_count--;
+        while (true) {
+          rows.map(function(elem) {
+            if (config.current && next_count > 0) {
+              config.next.push(elem);
+              next_count--;
+            }
+            if (elem.current.length > 0 && config.next.length == 0) {
+              config.current = elem;
+              config.next = [];
+              next_count = 3;
+            }
+          })
+          if (next_count <= 0) {
+            return config
           }
-          if (elem.current.length > 0) {
-            config.current = elem;
-            config.next = [];
-            next_count = 3;
-          }
-        })
-        return config
+          console.log('looping');
+        }
     }
 
     function proc_feed(data) {
