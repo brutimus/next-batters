@@ -71,7 +71,6 @@ function next_batter() {
           if (next_count <= 0) {
             return config
           }
-          console.log('looping');
         }
     }
 
@@ -125,11 +124,11 @@ function next_batter() {
         "<tr><td>HR</td><td>{2}</td><td>{6}</td></tr>" +
         "<tr><td>RBI</td><td>{3}</td><td>{7}</td></tr>" +
         "</tbody></table>").format(
-          d.seasonStats.batting.avg.toString().slice(1),
+          d.seasonStats.batting.avg != null ? d.seasonStats.batting.avg : '-',
           d.seasonStats.batting.runs,
           d.seasonStats.batting.hr,
           d.seasonStats.batting.rbi,
-          d.careerStats.batting.avg.toString().slice(1),
+          d.careerStats.batting.avg != null ? d.careerStats.batting.avg : '-',
           d.careerStats.batting.runs,
           d.careerStats.batting.hr,
           d.careerStats.batting.rbi
